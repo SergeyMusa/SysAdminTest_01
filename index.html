@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>SysAdminTest</title>
 
     <!-- подключаем свой CSS -->
@@ -31,34 +32,73 @@
     </div>
   </nav>
 <!-- авторизация для доступа к тестам -->
-<div class="form-check">
+<!-- <div class="form-check" ">
     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
     <label class="form-check-label" for="flexCheckDefault">
         авториздоваться
-    </label>
-</div>
+</label>
+</div> -->
 
 
-<p> Требуется авторизоваться, чтобы пройти тесты; ваши данные нужны только для статистики.</p>
-<p> Рекомендую использовать случайные сочетания клавиш, вы же как истинный шпион должны всегда скрываете себя )</p>
+<p> Требуется авторизоваться, чтобы пройти тесты; ваши данные нужны только для статистики и никуда не будут переданы ).</p>
+<!-- <p> Рекомендую использовать случайные сочетания клавиш, вы же как истинный шпион должны всегда скрываете себя )</p> -->
 
 <div class="form-check form-switch">
   <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-  <label class="form-check-label" for="flexSwitchCheckDefault">авторизоваться, чтобы пройти тесты</label>
+  <label class="form-check-label" for="flexSwitchCheckDefault">авторизоваться, чтобы пройти тесты
+    <!-- <input type="checkbox" id="shest001"> -->
+  <script>
+      var c = document.querySelector('#flexSwitchCheckDefault');
+      c.onclick = function() {
+        // alert( 'чекбокс выключён1' );
+        userOrg.disabled = true;
+        userName.disabled = true;
+        userButton.disabled = true;
+  
+       if (c.checked) {
+        // alert( 'чекбокс включён' );
+        userName.disabled = false;
+        userOrg.disabled = false;
+        userButton.disabled = false;
+       }
+      }
+      // ------
+  </script>
+  <script>
+    const userFunction  = () => {
+      // alert( 'чекбокс выключён1' );
+      if (userName.value == '' || userOrg.value == '') { 
+        // userName.placeholder = "Сыкло )";
+        console.log( ' userButton click ' + userName.placeholder + ' ' + userOrg.placeholder );
+      }
+      else {
+        console.log( ' userButton click ' + userName.value + ' ' + userOrg.value );
+      }
+                // console.log( ' userButton click ' + 'яяяяяяя' );
+    }
+            //  console.log( ' userButton click' );
+  </script>
+
+  </label>
 </div>
-<div class="row">
+<form action="">
+  <div class="row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="Штирлиц" aria-label="Имя">
+      <input type="text" class="form-control" placeholder="Штирлиц"  id="userName" disabled="true" label="qwe">
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="ООО Тайное Общество" aria-label="Организация">
+      <input type="text" class="form-control" placeholder="ООО Тайное Общество"  id="userOrg"  disabled="true" required="true">
     </div>
+    <div class="col">
+    <button onclick="userFunction()" type="button" class="btn btn-success " id="userButton" disabled="true">Success</button>
+  </div>
+</form>
   </div>
 
 <!-- ------------------------ -->
-
-  <input type="checkbox" name="email-enabled" />
-  <input placeholder="Email" type="email" name="email-value" />
+ <!-- простой и рабочий вариант -->
+  <!-- <input type="checkbox" name="email-enabled" />
+  <input placeholder="Email" type="email" name="email-value" /> -->
   
 </header>
 <!-- Боковая панель (сайдбар) / просто не могу понять, почему не работает как в примерах -->
@@ -77,7 +117,7 @@
 
     <div class="container">
         
-        <h1 class="text-center pt-3 pb-3">Hello, All!</h1 >
+        <h1 class="text-center pt-3 pb-3" id="YYY">Hello, All!</h1 >
 
         <section>
             <p class="text-left">Данный ресурс посвящается всем желающим начать работать в IT, или скорее пройти собеседование.</p>
@@ -180,8 +220,8 @@
         <hr>   
 
         <!-- загрузка тестов из базы или джейсон           -->
-        <script>
-            
+        <script runat="server">
+
         </script>
 
 
